@@ -1,7 +1,7 @@
 //导包
 const express = require("express");
 const router = require("./router");
-const bodyPqrser = require("body-parser");
+const bodyParser = require("body-parser");
 
 //配置
 //实例化app
@@ -10,16 +10,16 @@ const app = express();
 app.use("/public" ,express.static("./public"));
 
 //处理第三方静态资源
-app.use("/node-module", express.static("./node_modules"));
+app.use("/node_modules", express.static("./node_modules"));
 
 //配置模板引擎
 app.engine('html', require('express-art-template'));
 
-app.use(bodyPqrser.urlencoded({
+app.use(bodyParser.urlencoded({
     extended: false
 }))
 
-app.use(bodyPqrser.json());
+app.use(bodyParser.json());
 
 //挂载路由
 app.use(router);

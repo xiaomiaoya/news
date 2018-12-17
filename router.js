@@ -6,9 +6,9 @@ const c_user = require('./controllers/c_user');
 const router = express.Router();
 
 //监听端口
-router
-    .post("/signin", c_user.showSignin)
-    .get("/signin", c_user.handleSignin);
+router.get("/signin", c_user.showSignin)
+.post("/signin", c_user.handleSignin);
 
+// signin
 //导出包
 module.exports = router;
